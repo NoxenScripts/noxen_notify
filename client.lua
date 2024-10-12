@@ -23,6 +23,7 @@ RegisterCommand("notify", function(source, args)
     TriggerEvent('noxen:notify', title, message, type, time)
 end, false)
 
+--Add fonction initalisation Config LUA
 function SendConfigToFrontEnd()
     SendNUIMessage({
         action = "setConfig",
