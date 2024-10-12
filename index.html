@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link href="styles.css" rel="stylesheet" />
+    <script src="nui://game/ui/jquery.js" type="text/javascript"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+        rel="stylesheet">
+</head>
+
+<body>
+    <!-- Wrappers pour chaque position -->
+    <div id="notifications-wrapper-top-left" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-top-right" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-bottom-left" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-bottom-right" class="notifications-wrapper"></div>
+
+    <!-- Nouveaux Wrappers pour les positions centrales -->
+    <div id="notifications-wrapper-centre-haut" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-centre-gauche" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-centre-droit" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-centre-bas" class="notifications-wrapper"></div>
+
+    <script>
+        $(document).ready(function () {
+            // Sélectionnez tous les wrappers
+            const wrappers = {
+                'haut-gauche': $('#notifications-wrapper-top-left'),
+                'haut-droite': $('#notifications-wrapper-top-right'),
+                'bas-gauche': $('#notifications-wrapper-bottom-left'),
+                'bas-droite': $('#notifications-wrapper-bottom-right'),
+                'centre-haut': $('#notifications-wrapper-centre-haut'),
+                'centre-gauche': $('#notifications-wrapper-centre-gauche'),
+                'centre-droit': $('#notifications-wrapper-centre-droit'),
+                'centre-bas': $('#notifications-wrapper-centre-bas')
+            };
+
+            const config = {
+                progressBarStepInterval: 60,
+                hideDelay: 500,
+                defaultPosition: 'centre-gauche', // Position par défaut
+            };
+
+            function createNotification(data) {
+                // Déterminer la position de la notification
+                const position = data.position || config.defaultPosition;
+                const $notificationsWrapper = wrappers[position] || wrappers[config.defaultPosition];
+
+                // Créer dynamiquement la notification
+                let $notification = $('<div class="notification-container"></div>');
+                let $progressBar = $('<div class="progress-bar progress-bar-' + data.type + '"></div>');
+
+                // Ajouter le header de notification avec l'icône et le titre
+                let $header = $('<div class="notification-header"></div>');
+                $header.append('<img src="/svg/' + data.type + '.svg" alt="' + data.type + ' icon" class="' + data.type + '">'); // Utilisation des classes d'icône
+                $header.append('<div class="notification-title">' + data.title + '</div>');
+
+                // Ajouter le header et le contenu dans la notification
+                $notification.append($header);
+                $notification.append('<div class="notification-content">' + data.message + '</div>');
+                $notification.append($progressBar);
+
+                // Ajouter la notification dans le conteneur approprié
+                $notificationsWrapper.append($notification);
+
+                showNotification($notification, $progressBar, data);
+            }
+
+            function showNotification($notification, $progressBar, data) {
+                resetProgress($notification, true);
+
+                setTimeout(() => {
+                    $notification.addClass('show');
+                    let width = 0;
+                    const maxWidth = 300;
+                    const steps = data.time / config.progressBarStepInterval;
+                    const widthIncrement = maxWidth / steps;
+
+                    let intervalId = setInterval(() => {
+                        if (width >= maxWidth) {
+                            clearInterval(intervalId);
+                            setTimeout(() => {
+                                $notification.removeClass('show').addClass('hide');
+                                setTimeout(() => {
+                                    $notification.remove(); // Suppression après disparition
+                                }, config.hideDelay);
+                            }, config.hideDelay);
+                        } else {
+                            width += widthIncrement;
+                            $progressBar.width(Math.min(width, maxWidth));
+                        }
+                    }, config.progressBarStepInterval);
+                }, 100);
+            }
+
+            function resetProgress($notification, immediate = false) {
+                let $progressBar = $notification.find('.progress-bar');
+                if (immediate) {
+                    $progressBar.css('transition', 'none');
+                    $progressBar.width(0);
+                    $progressBar[0].offsetHeight; // Force reflow
+                    $progressBar.css('transition', '');
+                }
+                $notification.removeClass('show hide');
+            }
+
+            window.addEventListener('message', function (event) {
+                const data = event.data;
+
+                if (data.action === "setConfig") {
+                    config.defaultPosition = data.defaultPosition || config.defaultPosition;
+                }
+
+                if (data.action === "notification") {
+                    createNotification(data);
+                }
+
+
+            });
+        });
+    </script>
+</body>
+
+</html>
