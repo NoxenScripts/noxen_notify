@@ -1,6 +1,6 @@
+-- Register the event to send a notification to the frontend
 RegisterNetEvent('noxen:notify')
 AddEventHandler('noxen:notify', function(title, message, type, time)
-    -- Envoie les informations au NUI pour les afficher dans l'interface HTML
     local title = title or "Notification"
     local message = message or "Message"
     local type = type or "info"
@@ -14,7 +14,7 @@ AddEventHandler('noxen:notify', function(title, message, type, time)
     })
 end)
 
-
+-- Command to test the notification system
 RegisterCommand("notify", function(source, args)
     local title = args[1] or "Notification"
     local message = args[2] or "Message"

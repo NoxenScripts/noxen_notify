@@ -14,13 +14,11 @@
 </head>
 
 <body>
-    <!-- Wrappers pour chaque position -->
     <div id="notifications-wrapper-top-left" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-top-right" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-bottom-left" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-bottom-right" class="notifications-wrapper"></div>
 
-    <!-- Nouveaux Wrappers pour les positions centrales -->
     <div id="notifications-wrapper-centre-haut" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-centre-gauche" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-centre-droit" class="notifications-wrapper"></div>
@@ -28,7 +26,6 @@
 
     <script>
         $(document).ready(function () {
-            // Sélectionnez tous les wrappers
             const wrappers = {
                 'haut-gauche': $('#notifications-wrapper-top-left'),
                 'haut-droite': $('#notifications-wrapper-top-right'),
@@ -43,29 +40,24 @@
             const config = {
                 progressBarStepInterval: 60,
                 hideDelay: 500,
-                defaultPosition: 'centre-gauche', // Position par défaut
+                defaultPosition: 'centre-gauche', //default position
             };
 
             function createNotification(data) {
-                // Déterminer la position de la notification
                 const position = data.position || config.defaultPosition;
                 const $notificationsWrapper = wrappers[position] || wrappers[config.defaultPosition];
 
-                // Créer dynamiquement la notification
                 let $notification = $('<div class="notification-container"></div>');
                 let $progressBar = $('<div class="progress-bar progress-bar-' + data.type + '"></div>');
 
-                // Ajouter le header de notification avec l'icône et le titre
                 let $header = $('<div class="notification-header"></div>');
                 $header.append('<img src="/svg/' + data.type + '.svg" alt="' + data.type + ' icon" class="' + data.type + '">'); // Utilisation des classes d'icône
                 $header.append('<div class="notification-title">' + data.title + '</div>');
 
-                // Ajouter le header et le contenu dans la notification
                 $notification.append($header);
                 $notification.append('<div class="notification-content">' + data.message + '</div>');
                 $notification.append($progressBar);
 
-                // Ajouter la notification dans le conteneur approprié
                 $notificationsWrapper.append($notification);
 
                 showNotification($notification, $progressBar, data);
@@ -87,7 +79,7 @@
                             setTimeout(() => {
                                 $notification.removeClass('show').addClass('hide');
                                 setTimeout(() => {
-                                    $notification.remove(); // Suppression après disparition
+                                    $notification.remove();
                                 }, config.hideDelay);
                             }, config.hideDelay);
                         } else {
@@ -103,7 +95,7 @@
                 if (immediate) {
                     $progressBar.css('transition', 'none');
                     $progressBar.width(0);
-                    $progressBar[0].offsetHeight; // Force reflow
+                    $progressBar[0].offsetHeight;
                     $progressBar.css('transition', '');
                 }
                 $notification.removeClass('show hide');
