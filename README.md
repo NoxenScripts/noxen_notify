@@ -50,15 +50,16 @@ Enhance communication on your server with **Noxen Notify** – because a well-pl
 -- type = error, success, info, warning
 -- time = number (5000)
 -- playSound = boolean (false by default)
+-- image = string (Link img)
 
 
 --CLIENT Exemple : 
 
-TriggerEvent("noxen:notify", title, message, type, time, playSound)
+TriggerEvent("noxen:notify", title, message, type, time, playSound, image)
 
 --SERVER Exemple : 
 
-TriggerClientEvent("noxen:notify",source, title, message, type, time, playSound)
+TriggerClientEvent("noxen:notify",source, title, message, type, time, playSound, image)
 
 ```
 
