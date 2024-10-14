@@ -56,6 +56,10 @@
 
                 $notification.append($header);
                 $notification.append('<div class="notification-content">' + data.message + '</div>');
+                if (data.image) {
+                    let $imageDiv = $('<div class="notification-image"><img src="' + data.image + '" alt="Notification image" width="300px"></div>');
+                    $notification.append($imageDiv);
+                }
                 $notification.append($progressBar);
 
                 $notificationsWrapper.append($notification);
