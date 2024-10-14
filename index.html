@@ -27,20 +27,20 @@
     <script>
         $(document).ready(function () {
             const wrappers = {
-                'haut-gauche': $('#notifications-wrapper-top-left'),
-                'haut-droite': $('#notifications-wrapper-top-right'),
-                'bas-gauche': $('#notifications-wrapper-bottom-left'),
-                'bas-droite': $('#notifications-wrapper-bottom-right'),
-                'centre-haut': $('#notifications-wrapper-centre-haut'),
-                'centre-gauche': $('#notifications-wrapper-centre-gauche'),
-                'centre-droit': $('#notifications-wrapper-centre-droit'),
-                'centre-bas': $('#notifications-wrapper-centre-bas')
+                'top-left': $('#notifications-wrapper-top-left'),
+                'top-right': $('#notifications-wrapper-top-right'),
+                'bottom-left': $('#notifications-wrapper-bottom-left'),
+                'bottom-right': $('#notifications-wrapper-bottom-right'),
+                'center-top': $('#notifications-wrapper-centre-haut'),
+                'center-left': $('#notifications-wrapper-centre-gauche'),
+                'center-right': $('#notifications-wrapper-centre-droit'),
+                'center-bottom': $('#notifications-wrapper-centre-bas')
             };
 
             const config = {
                 progressBarStepInterval: 60,
                 hideDelay: 500,
-                defaultPosition: 'centre-gauche', //default position
+                defaultPosition: 'center-left', //default position
             };
 
             function createNotification(data) {

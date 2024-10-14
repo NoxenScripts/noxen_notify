@@ -1,3 +1,4 @@
 Config = {}
 
-Config.Position = "centre-gauche" -- Options : 'haut-gauche', 'haut-droite', 'bas-gauche', 'bas-droite', 'centre-haut', 'centre-gauche', 'centre-droit', 'centre-bas'
+Config.Position = "center-left" -- Options : 'top-left', 'rop-right', 'bottom-left', 'bottom-right', 'center-top', 'center-left', 'center-right', 'center-bottom'
+Config.CommandTest = true -- Active command /notify for test notification system
