@@ -40,6 +40,17 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
 
 Enhance communication on your server with **Noxen Notify** – because a well-placed message can make all the difference.
 
+```lua
+--CLIENT Exemple : 
+
+TriggerEvent("noxen:notify", title, message, type, time)
+
+--SERVER Exemple : 
+
+TriggerClientEvent("noxen:notify",source, title, message, type, time)
+
+```
+
 ---
 
 Learn more and start using **Noxen Notify** today!
