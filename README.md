@@ -1,3 +1,5 @@
+[![Join our Discord](https://files.sincity-rp.fr/f.php?h=313X1QVS&p=1)](https://discord.gg/6yZB4YwPdw)
+
 Elevate your notifications with **Noxen Notify** – a simple, standalone, and highly customizable notification system, perfect for all your in-game needs and beyond.
 
 With **Noxen Notify**, you get to choose exactly where and how your notifications appear on the screen. Whether you prefer a subtle approach or a more attention-grabbing display, our tool offers complete flexibility to match your style and preferences.
