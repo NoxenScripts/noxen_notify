@@ -28,6 +28,7 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
   - `message`: Content of the notification
   - `type`: Type of notification (e.g., success, error, info)
   - `time`: Duration the notification should stay visible (in milliseconds)
+  - `playSound`: Different sound play when launch notification
 
 - **Ease of Use:**  
   An intuitive system that doesn't require hours of learning. Install and customize it quickly for seamless integration.
@@ -43,13 +44,21 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
 Enhance communication on your server with **Noxen Notify** – because a well-placed message can make all the difference.
 
 ```lua
+
+-- title = string
+-- message = string
+-- type = error, success, info, warning
+-- time = number (5000)
+-- playSound = boolean (false by default)
+
+
 --CLIENT Exemple : 
 
-TriggerEvent("noxen:notify", title, message, type, time)
+TriggerEvent("noxen:notify", title, message, type, time, playSound)
 
 --SERVER Exemple : 
 
-TriggerClientEvent("noxen:notify",source, title, message, type, time)
+TriggerClientEvent("noxen:notify",source, title, message, type, time, playSound)
 
 ```
 
