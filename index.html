@@ -60,6 +60,10 @@
 
                 $notificationsWrapper.append($notification);
 
+                if (data.playSound) {
+                    playSound(data.type);
+                }
+
                 showNotification($notification, $progressBar, data);
             }
 
@@ -99,6 +103,11 @@
                     $progressBar.css('transition', '');
                 }
                 $notification.removeClass('show hide');
+            }
+
+            function playSound(type) {
+                let audio = new Audio('/sound/' + type + '.mp3');
+                audio.play();
             }
 
             window.addEventListener('message', function (event) {

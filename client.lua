@@ -1,16 +1,18 @@
 -- Register the event to send a notification to the frontend
 RegisterNetEvent('noxen:notify')
-AddEventHandler('noxen:notify', function(title, message, type, time)
+AddEventHandler('noxen:notify', function(title, message, type, time, playSound)
     local title = title or "Notification"
     local message = message or "Message"
     local type = type or "info"
     local time = time or 5000
+    local playSound = playSound or false
     SendNUIMessage({
         action = "notification",
         title = title,
         message = message,
         type = type,
-        time = time
+        time = time,
+        playSound = playSound
     })
 end)
 
