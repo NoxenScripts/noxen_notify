@@ -50,5 +50,6 @@ function SendConfigToFrontEnd()
 end
 
 CreateThread(function()
+    Wait(500)
     SendConfigToFrontEnd()
 end)    
