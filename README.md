@@ -19,26 +19,26 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
   🖼️ *Center-bottom*  
   You're in control!
 
-- **🎨 **Colors Tags:**
+- **Colors Tags:**
   Choose your best colors to beautify your content:
 
-  `~r~`: *Red*
-  `~g~`: *Green*
-  `~b~`: *Blue*
-  `~y~`: *Yellow*
-  `~t~`: *Menu Grey*
-  `~o~`: *Orange*
-  `~p~`: *Purple*
-  `~q~`: *Pink*
-  `~m~`: *Mid Grey*
-  `~l~`: *Black*
-  `~d~`: *Blue Dark*
-  `~w~`: *Reset*
-  `~s~`: *Reset*
-  `~n~`: *Line Break*
-  `~h~`: *Bold*
-  `~bold~`: *Bold*
-  `~italic~`: *Italic*
+  `~r~`: *Red*  
+  `~g~`: *Green*  
+  `~b~`: *Blue*  
+  `~y~`: *Yellow*  
+  `~t~`: *Menu Grey*  
+  `~o~`: *Orange*  
+  `~p~`: *Purple*  
+  `~q~`: *Pink*  
+  `~m~`: *Mid Grey*  
+  `~l~`: *Black*  
+  `~d~`: *Blue Dark*  
+  `~w~`: *Reset*  
+  `~s~`: *Reset*  
+  `~n~`: *Line Break*  
+  `~h~`: *Bold*  
+  `~bold~`: *Bold*  
+  `~italic~`: *Italic*  
 
 
 - **Standalone:**  
