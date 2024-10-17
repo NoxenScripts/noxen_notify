@@ -49,9 +49,6 @@ function SendConfigToFrontEnd()
     })
 end
 
-
-AddEventHandler('onResourceStart', function(resourceName)
-    if GetCurrentResourceName() ~= resourceName then return end
-    Wait(500)
+CreateThread(function()
     SendConfigToFrontEnd()
-end)
+end)    
