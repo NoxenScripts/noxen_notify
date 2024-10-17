@@ -29,6 +29,16 @@ if Config.CommandTest then
         local image = args[6] or false
         TriggerEvent('noxen:notify', title, message, type, time, playSound, image)
     end, false)
+
+    RegisterCommand("notifycolors", function(source, args)
+        local title = "Notification colors"
+        local message = "~r~Red~n~~g~Green~n~~b~Blue~n~~y~Yellow~n~~p~Purple~n~~q~Pink~n~~o~Orange~n~~w~White~n~~d~Grey~n~~l~Black~n~~d~Blue-Dark~w~~n~~h~Bold~n~~italic~Italic"
+        local type = args[1] or "info"
+        local time = args[2] or 20000
+        local playSound = args[3] or false
+        local image = args[4] or false
+        TriggerEvent('noxen:notify', title, message, type, time, playSound, image)
+    end, false)
 end
 
 --Add fonction initalisation Config LUA
@@ -39,9 +49,7 @@ function SendConfigToFrontEnd()
     })
 end
 
-
-AddEventHandler('onResourceStart', function(resourceName)
-    if GetCurrentResourceName() ~= resourceName then return end
+CreateThread(function()
     Wait(500)
     SendConfigToFrontEnd()
-end)
+end)    

@@ -33,7 +33,7 @@
 }
 
 
-#notifications-wrapper-centre-haut {
+#notifications-wrapper-center-top {
     top: 16px;
     left: 50%;
     transform: translateX(-50%);
@@ -41,26 +41,27 @@
 }
 
 
-#notifications-wrapper-centre-gauche {
+#notifications-wrapper-center-left {
     top: 50%;
     left: 16px;
     transform: translateY(-50%);
     align-items: flex-start;
 }
 
-#notifications-wrapper-centre-droit {
+#notifications-wrapper-center-right {
     top: 50%;
     right: 16px;
     transform: translateY(-50%);
     align-items: flex-end;
 }
 
-#notifications-wrapper-centre-bas {
+#notifications-wrapper-center-bottom {
     bottom: 16px;
     left: 50%;
     transform: translateX(-50%);
     align-items: center;
 }
+
 
 .notification-container {
     width: 300px;
@@ -156,4 +157,64 @@
 .success {
     width: 20px;
     height: 20px;
+}
+
+.tag-red {
+    color: #E03232;
+}
+
+.tag-green {
+    color: #72CC72;
+}
+
+.tag-blue {
+    color: #5DB6E5;
+}
+
+.tag-yellow {
+    color: #F0C850;
+}
+
+.tag-menu-grey {
+    color: #8C8C8C;
+}
+
+.tag-orange {
+    color: #FF8555;
+}
+
+.tag-purple {
+    color: #8466E2;
+}
+
+.tag-pink {
+    color: #CB3694;
+}
+
+.tag-mid-grey-mp {
+    color: #888888;
+}
+
+.tag-black {
+    color: #000000;
+}
+
+.tag-blue-dark {
+    color: #2F5C73;
+}
+
+.tag-reset {
+    color: white;
+}
+
+.tag-line-break {
+    display: block;
+}
+
+.tag-bold {
+    font-weight: bold;
+}
+
+.tag-italic {
+    font-style: italic;
 }

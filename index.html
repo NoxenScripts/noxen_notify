@@ -19,10 +19,10 @@
     <div id="notifications-wrapper-bottom-left" class="notifications-wrapper"></div>
     <div id="notifications-wrapper-bottom-right" class="notifications-wrapper"></div>
 
-    <div id="notifications-wrapper-centre-haut" class="notifications-wrapper"></div>
-    <div id="notifications-wrapper-centre-gauche" class="notifications-wrapper"></div>
-    <div id="notifications-wrapper-centre-droit" class="notifications-wrapper"></div>
-    <div id="notifications-wrapper-centre-bas" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-center-top" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-center-left" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-center-right" class="notifications-wrapper"></div>
+    <div id="notifications-wrapper-center-bottom" class="notifications-wrapper"></div>
 
     <script>
         $(document).ready(function () {
@@ -31,10 +31,10 @@
                 'top-right': $('#notifications-wrapper-top-right'),
                 'bottom-left': $('#notifications-wrapper-bottom-left'),
                 'bottom-right': $('#notifications-wrapper-bottom-right'),
-                'center-top': $('#notifications-wrapper-centre-haut'),
-                'center-left': $('#notifications-wrapper-centre-gauche'),
-                'center-right': $('#notifications-wrapper-centre-droit'),
-                'center-bottom': $('#notifications-wrapper-centre-bas')
+                'center-top': $('#notifications-wrapper-center-top'),
+                'center-left': $('#notifications-wrapper-center-left'),
+                'center-right': $('#notifications-wrapper-center-right'),
+                'center-bottom': $('#notifications-wrapper-center-bottom'),
             };
 
             const config = {
@@ -42,6 +42,32 @@
                 hideDelay: 500,
                 defaultPosition: 'center-left', //default position
             };
+
+            function parseColorCodes(text) {
+                return text.toString().replace(/~([a-z_]+)~/g, (match, code) => {
+                    const tagMap = {
+                        'r': 'red',
+                        'g': 'green',
+                        'b': 'blue',
+                        'y': 'yellow',
+                        't': 'menu-grey',
+                        'o': 'orange',
+                        'p': 'purple',
+                        'q': 'pink',
+                        'm': 'mid-grey-mp',
+                        'l': 'black',
+                        'd': 'blue-dark',
+                        'w': 'reset',
+                        's': 'reset',
+                        'n': 'line-break',
+                        'h': 'bold',
+                        'bold': 'bold',
+                        'italic': 'italic',
+                    };
+                    return `<span class="tag-${tagMap[code]}">`;
+                }).replace(/~s~/g, '</span>');
+            }
+
 
             function createNotification(data) {
                 const position = data.position || config.defaultPosition;
@@ -52,10 +78,10 @@
 
                 let $header = $('<div class="notification-header"></div>');
                 $header.append('<img src="/svg/' + data.type + '.svg" alt="' + data.type + ' icon" class="' + data.type + '">'); // Utilisation des classes d'icône
-                $header.append('<div class="notification-title">' + data.title + '</div>');
+                $header.append('<div class="notification-title">' + parseColorCodes(data.title) + '</div>');
 
                 $notification.append($header);
-                $notification.append('<div class="notification-content">' + data.message + '</div>');
+                $notification.append('<div class="notification-content">' + parseColorCodes(data.message) + '</div>');
                 if (data.image) {
                     let $imageDiv = $('<div class="notification-image"><img src="' + data.image + '" alt="Notification image" width="300px"></div>');
                     $notification.append($imageDiv);
@@ -124,7 +150,6 @@
                 if (data.action === "notification") {
                     createNotification(data);
                 }
-
 
             });
         });

@@ -19,6 +19,28 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
   🖼️ *Center-bottom*  
   You're in control!
 
+- **Colors Tags:**
+  Choose your best colors to beautify your content:
+
+  `~r~`: *Red*  
+  `~g~`: *Green*  
+  `~b~`: *Blue*  
+  `~y~`: *Yellow*  
+  `~t~`: *Menu Grey*  
+  `~o~`: *Orange*  
+  `~p~`: *Purple*  
+  `~q~`: *Pink*  
+  `~m~`: *Mid Grey*  
+  `~l~`: *Black*  
+  `~d~`: *Blue Dark*  
+  `~w~`: *Reset*  
+  `~s~`: *Reset*  
+  `~n~`: *Line Break*  
+  `~h~`: *Bold*  
+  `~bold~`: *Bold*  
+  `~italic~`: *Italic*  
+
+
 - **Standalone:**  
   No dependencies required – **Noxen Notify** works on its own and can be easily adapted to any server.
 
@@ -29,7 +51,6 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
   - `type`: Type of notification (e.g., success, error, info)
   - `time`: Duration the notification should stay visible (in milliseconds)
   - `playSound`: Different sound play when launch notification
-  - `image`: Add image in your notification (link image)
 
 - **Ease of Use:**  
   An intuitive system that doesn't require hours of learning. Install and customize it quickly for seamless integration.
