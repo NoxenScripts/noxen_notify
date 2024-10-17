@@ -29,7 +29,6 @@ With **Noxen Notify**, you get to choose exactly where and how your notification
   - `type`: Type of notification (e.g., success, error, info)
   - `time`: Duration the notification should stay visible (in milliseconds)
   - `playSound`: Different sound play when launch notification
-  - `image`: Add image in your notification (link image)
 
 - **Ease of Use:**  
   An intuitive system that doesn't require hours of learning. Install and customize it quickly for seamless integration.
