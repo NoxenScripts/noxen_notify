@@ -44,7 +44,7 @@
             };
 
             function parseColorCodes(text) {
-                return text.replace(/~([a-z_]+)~/g, (match, code) => {
+                return text.toString().replace(/~([a-z_]+)~/g, (match, code) => {
                     const tagMap = {
                         'r': 'red',
                         'g': 'green',
